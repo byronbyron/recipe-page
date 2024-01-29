@@ -59,7 +59,19 @@ ul {
 }
 
 ol {
+    counter-reset: item;
+    list-style: none;
     margin-bottom: 2rem;
+}
+
+ol li::before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    font-weight: 700;
+    display: inline-block;
+    width: 2em;
+    margin-left: -2em;
+    color: var(--nutmeg);
 }
 
 li + li {
@@ -96,12 +108,31 @@ table {
     width: 100%;
 }
 
+th, td {
+    padding: 0.625rem;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+tr:last-child th,
+tr:last-child td {
+    border-bottom: 0;
+}
+
+th {
+    font-weight: 400;
+    text-align: left;
+    padding-left: 1.875rem;
+    width: 50%;
+}
+
 td {
-    padding: 0.5rem 1.5rem;
+    color: var(--nutmeg);
+    font-weight: 700;
+    padding-left: 0.5rem;
 }
 
 .container {
-    max-width: 768px;
+    max-width: 736px;
 }
 
 .card {
@@ -144,4 +175,39 @@ td {
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+.-mt-1 {
+    margin-top: -1.25rem;
+}
+
+@media(min-width: 768px) {
+    h1 {
+        font-size: 40px;
+        margin-bottom: 1.5rem;
+    }
+
+    .container {
+        margin-top: 122px;
+        margin-bottom: 124px;
+    }
+    
+    .card {
+        padding: 2.5rem 2.5rem 1.75rem;
+        border-radius: 1.5rem;
+    }
+
+    .image {
+        margin-bottom: 2.5rem;
+        border-radius: 0.75rem;
+    }
+
+    .card-body {
+        padding: 0;
+    }
+
+    .prep {
+        padding: 1.75rem;
+    }
+    
 }
